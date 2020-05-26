@@ -1,3 +1,3 @@
 # test-app
 
-for testing - siyad
+CI/CD with flask + jenkins + docker-compose + ansible

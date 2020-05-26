@@ -1,0 +1,24 @@
+---
+  - name: Playbook for running docker-compose
+    hosts: development
+    become: yes
+    become_user: root
+    vars:
+    - resetenv: 
+    tasks:
+      - include_vars: ./vault
+      - name: Copy compose file to remote
+        copy:
+          src: /home/siyad/workspace/myapp
+          dest: /home/user
+          mode: "preserve"
+      - name: Login to docker registry
+        docker_login:
+          registry_url: "https://dockerhub.siyad.com:5050"
+          username: "{{vault_privatedocker_username}}"
+          password: "{{vault_privatedocker_password}}"
+      - name: run service in docker-compose
+        docker_compose:
+          project_src: "/home/user"
+          pull: yes
+

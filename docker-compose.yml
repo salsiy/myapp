@@ -1,0 +1,7 @@
+#composefile
+version: '2'
+services:
+        test:
+                image: git.dbaux.com:5050/secumobile/test-app/alpha1:latest
+                ports:
+                - "9090:5000"

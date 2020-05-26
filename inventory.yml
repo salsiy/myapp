@@ -1,0 +1,7 @@
+all:
+  hosts:
+    development:
+      ansible_connection: ssh
+      ansible_user: ansible
+      ansible_host: dev-02.siyad.com
+      ansible_port: 22

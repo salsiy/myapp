@@ -1,6 +1,5 @@
 //jenkinsfile
 pipeline{
-        agent { node { label 'docker' }}
         stages{
                 stage(' stage 1'){
                         steps{

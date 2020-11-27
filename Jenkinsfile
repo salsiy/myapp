@@ -38,10 +38,8 @@ pipeline{
         }
         post {
                 always{
-                         echo 'Notify GitLab'
-                         updateGitlabCommitStatus name: 'build', state: 'pending'
-                         updateGitlabCommitStatus name: 'build', state: 'success'
 			 //cleanWs()
+                         echo "pipeline completed"
                         
                 }
                 failure{ //Send an email to the person that broke the build

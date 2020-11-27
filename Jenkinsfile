@@ -43,7 +43,6 @@ pipeline{
                         
                 }
                 failure{ //Send an email to the person that broke the build
-			updateGitlabCommitStatus name: 'build', state: 'failed'
                         step([$class            : 'Mailer',
                                 notifyEveryUnstableBuild: true,
                                 recipients              : [emailextrecipients([[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']])].join(' ')])
